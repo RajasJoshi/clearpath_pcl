@@ -107,7 +107,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /bf_lidar/point_cloud_pcl_example
+        Value: /bf_lidar/point_cloud_clearpath_pcl
 
       Use Fixed Frame: true
       Use rainbow: true

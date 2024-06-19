@@ -29,7 +29,7 @@ source /opt/ros/foxy/setup.bash
 Build the package with colcon.
 ```
 cd /home/$USER/dev_ws && 
-colcon build --packages-select pcl_example --event-handlers console_direct+ &&
+colcon build --packages-select clearpath_pcl --event-handlers console_direct+ &&
 cd ..
 ```
 
@@ -38,20 +38,20 @@ cd ..
 In your ros2 sourced terminal session call:    
     
 ``` 
-ros2 run pcl_example pcl_example_node 
+ros2 run clearpath_pcl clearpath_pcl_node 
 ``` 
     
 To customize parameter call the nodes with custom arguments. E.g.:  
 
 ``` 
-ros2 run pcl_example pcl_example_node --ros-args --remap topic_pointcloud_in:=bf_lidar/point_cloud_out --remap topic_pointcloud_in:=bf_lidar/point_cloud_pcl_example
+ros2 run clearpath_pcl clearpath_pcl_node --ros-args --remap topic_pointcloud_in:=bf_lidar/point_cloud_out --remap topic_pointcloud_in:=bf_lidar/point_cloud_clearpath_pcl
 ```  
 
 You can also use the launch file supplied with the package to start the nodes. 
 From your ros2 development directory call:    
 
 ```  
-cd /home/$USER/dev_ws/src/pcl_example &&   
+cd /home/$USER/dev_ws/src/clearpath_pcl &&   
 ros2 launch launch/launch.py && 
 cd ../../..
 ```  
@@ -65,15 +65,15 @@ Run all test defined in the package by following command
  
 ```
 cd /home/$USER/dev_ws && 
-colcon test --packages-select pcl_example --event-handlers console_direct+ &&
+colcon test --packages-select clearpath_pcl --event-handlers console_direct+ &&
 cd ..
 ```     
 
 Also you can manually launch the launchtests defined in this repository in the terminal     
     
 ```  
-cd /home/$USER/dev_ws/src/pcl_example && 
-launch_test test/pcl_example_launch.testing.py && 
+cd /home/$USER/dev_ws/src/clearpath_pcl && 
+launch_test test/clearpath_pcl_launch.testing.py && 
 cd ../.. /..
 ```  
    
@@ -81,7 +81,7 @@ cd ../.. /..
 If the "IDE" VS Code is used, build and test tasks can be called directly from the console    
 Open the package in VS Code 
 ```
-cd /home/$USER/dev_ws/src/pcl_example &&
+cd /home/$USER/dev_ws/src/clearpath_pcl &&
 code . &&
 cd ../../.. 
 ```

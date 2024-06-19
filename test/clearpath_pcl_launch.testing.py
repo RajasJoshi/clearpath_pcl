@@ -1,17 +1,17 @@
 #  Copyright (c) 2022 Jonas Mahler
 
-#  This file is part of pcl_example.
+#  This file is part of clearpath_pcl.
 
-#  pcl_example is free software: you can redistribute it and/or modify it under the terms 
+#  clearpath_pcl is free software: you can redistribute it and/or modify it under the terms 
 #  of the GNU General Public License as published by the Free Software Foundation, 
 #  either version 3 of the License, or (at your option) any later version.
 
-#  pcl_example is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+#  clearpath_pcl is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
 #  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 #  See the GNU General Public License for more details.
 
 #  You should have received a copy of the GNU General Public License along 
-#  with pcl_example. If not, see <https://www.gnu.org/licenses/>. 
+#  with clearpath_pcl. If not, see <https://www.gnu.org/licenses/>. 
 
 import time
 import unittest
@@ -45,20 +45,20 @@ def generate_test_description():
     """
     
     # Set rviz2 configuration file
-    rviz2_config =  os.path.join(ament_index_python.get_package_prefix('pcl_example'),
-            'lib/pcl_example/',
-            'pcl_example.rviz')
-    #rviz2_config = os.path.join(ament_index_python.get_package_share_directory('pcl_example'),'pcl_example', 'pcl_example_rviz2.rviz')
+    rviz2_config =  os.path.join(ament_index_python.get_package_prefix('clearpath_pcl'),
+            'lib/clearpath_pcl/',
+            'clearpath_pcl.rviz')
+    #rviz2_config = os.path.join(ament_index_python.get_package_share_directory('clearpath_pcl'),'clearpath_pcl', 'clearpath_pcl_rviz2.rviz')
     
     # dut -> device under test is the node to be tested in this example
     dut = Node(
-        package='pcl_example',
-        executable='pcl_example_node',
-        name='pcl_example_node',
+        package='clearpath_pcl',
+        executable='clearpath_pcl_node',
+        name='clearpath_pcl_node',
         parameters= [
             {'frame_id': 'lidar'},
             {'topic_pointcloud_in': 'bf_lidar/point_cloud_out'},
-            {'topic_pointcloud_out': 'bf_lidar/point_cloud_pcl_example'},
+            {'topic_pointcloud_out': 'bf_lidar/point_cloud_clearpath_pcl'},
             {'leaf_x': 0.2},
             {'leaf_y': 0.2},
             {'leaf_z': 0.2}],
@@ -136,8 +136,8 @@ class TestProcessOutput(unittest.TestCase):
        
         # Make path to data
         input_data_path = os.path.join(
-            ament_index_python.get_package_prefix('pcl_example'),
-            'lib/pcl_example/',
+            ament_index_python.get_package_prefix('clearpath_pcl'),
+            'lib/clearpath_pcl/',
             input_data_name[self.message_counter])
         
         print("read data")
@@ -219,7 +219,7 @@ class TestProcessOutput(unittest.TestCase):
         # Setup for listening to dut messages       
         sub = self.node.create_subscription(
             PointCloud2,
-            '/bf_lidar/point_cloud_pcl_example',
+            '/bf_lidar/point_cloud_clearpath_pcl',
             lambda msg: msgs_rx.append(msg),
             10
         )
